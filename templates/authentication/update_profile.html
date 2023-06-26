@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+
+{% block title %}
+profile page
+{% endblock %}
+
+
+{% block content %}
+
+    <form action="" method="POST">
+        {% csrf_token %} }}
+        {{ form }}
+
+        &star is complusory field to fill
+
+        <input type="submit" value="update">
+
+    </form>
+
+
+{% endblock %}

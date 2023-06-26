@@ -1,0 +1,17 @@
+{% extends 'master.html' %}
+
+{% block title %}
+ update event page
+{% endblock %}
+
+
+{% block content %}
+    thanks for contribute of orgnizing an event
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form}}
+
+            <input type="submit" value="update">
+        </form>
+
+{% endblock %}

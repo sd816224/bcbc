@@ -1,0 +1,22 @@
+{% extends 'master.html' %}
+
+{% block title %}
+ all event
+{% endblock %}
+
+
+{% block content %}
+
+    <a href="{% url 'add_event' %}">add new event here</a> <br><br>
+
+    <ul>
+        {%  for event in events %}
+        <li> {{ event.event_datetime }}</li>
+        <li> {{ event.name }}</li>
+            <a href="{% url 'event_detail' event.id %}">details...</a> <br>
+        <br>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

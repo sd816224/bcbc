@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+
+{% block title %}
+ add event page
+{% endblock %}
+
+
+{% block content %}
+    {% if submitted %}
+    thanks for contribute of orgnizing an event
+    {% else %}
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form}}
+
+            <input type="submit" value="add">
+        </form>
+    {% endif %}
+
+{% endblock %}

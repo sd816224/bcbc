@@ -1,0 +1,18 @@
+{% extends 'master.html' %}
+
+{% block title %}
+home pageeeeeeeeeee
+{% endblock %}
+
+
+{% block content %}
+    this is home <br>
+    edit it at home.html <br>
+    {% if user.is_active %}
+        user active can see this
+    {% endif %}
+
+    <br>
+    {{ user.is_active }}
+
+{% endblock %}

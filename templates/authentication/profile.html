@@ -1,0 +1,49 @@
+{% extends 'master.html' %}
+
+{% block title %}
+profile page
+{% endblock %}
+
+
+{% block content %}
+{#    {% for profile in profile %}#}
+        username:  {{ user.username }} <br>
+        first_name:{{ profile.first_name }} <br>
+        last_name:{{ profile.last_name }} <br>
+        nick_name:{{ profile.nick_name }} <br>
+        age:{{ profile.age }} <br>
+        email:{{ profile.email }} <br>
+        phone:{{ profile.phone }} <br>
+        shirt_size:{{ profile.shirt_size }} <br>
+        bio:{{ profile.bio }} <br>
+        player_type:{{ profile.player_type }} <br>
+    <br><br><br>
+        events to attend: <br>
+        {% for item in profile.event_set.all %}
+            <a href="{% url 'event_detail' item.id %}"> {{ item }}</a> : {{ item.date }} <br>
+        {% endfor %}
+        <br>
+{#    {% endfor %}#}
+{#    <ul>#}
+{##}
+{#            <li>name: {{ event.name }} </li><br>#}
+{#            <li>date: {{ event.date }} </li><br>#}
+{#            <li>organiser: {{ event.organiser }} </li><br>#}
+    {#        <li> {{ event.venue.address }} </li><br>#}
+{#            <li>price: {{ event.price }} </li><br>#}
+{#            <li>activity_note: {{ event.activity_note }} </li><br>#}
+{#            <li>payment_qr:#}
+{#                {% if event.payment_qr %}#}
+{#                <img src="{{ event.payment_qr.url }}" alt="">#}
+{#                {% else %}#}
+{#                N/A#}
+{#                {% endif %}#}
+{#            </li><br>#}
+{#            <li>RSVP: {{ event.RSVP }} </li><br>#}
+{##}
+{#    </ul>#}
+{#    <a href="{% url 'update_event' event.id %}"><-Edit</a> <br>#}
+{#    <a href="{% url 'all_events' %}"><-BACK</a>#}
+
+    <a href="{% url 'update_profile' user.profile.id %}">  <-Edit </a>
+{% endblock %}

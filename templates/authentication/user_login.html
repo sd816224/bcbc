@@ -1,0 +1,57 @@
+{% extends 'master.html' %}
+
+{% block title %}
+ user login
+{% endblock %}
+
+
+{% block content %}
+
+    <br>
+    <br>
+    <br>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="">username</label>
+            <input type="text" name="username" id='username' placeholder="enter your username" required>
+
+
+        <label for="">password</label>
+            <input type="password" name="password" id='password' placeholder="enter your password" required>
+
+
+            <button  type="submit"> login </button>
+    </form>
+
+
+{% endblock %}
+
+
+
+{##}
+{#{% extends 'master.html' %}#}
+{##}
+{#{% block title %}#}
+{#    signin page#}
+{#{% endblock %}#}
+{##}
+{#<{% block content %}#}
+{#<h3>sign in</h3>#}
+{##}
+{#    <form action="" method="post">#}
+{#    <form action="/members/login_user" method="post">#}
+{#        {% csrf_token %}#}
+{#        <label for="">Username</label>#}
+{#        <input type="text" id="username" name="username" placeholder="enter your username" required>#}
+{##}
+{##}
+{#        <label for="">Password</label>#}
+{#        <input type="password" id="pass1" name="pass1" placeholder="enter your password">#}
+{##}
+{#        <button type="submit">Sign in</button>#}
+{#    </form>#}
+{##}
+{#{% endblock %}#}
+{##}
+
+

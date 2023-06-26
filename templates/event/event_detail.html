@@ -1,0 +1,65 @@
+{% extends 'master.html' %}
+
+{% block title %}
+event detail page
+{% endblock %}
+
+
+{% block content %}
+
+
+    <ul>
+
+        <li>name: {{ event.name }} </li><br>
+        <li>date: {{ event.date }} </li><br>
+        {% if event.organiser.profile.nick_name %}
+            <li>organiser: {{ event.organiser.profile.nick_name }} </li><br>
+        {% else %}
+            <li>organiser: {{ event.organiser.profile.first_name }} {{ event.organiser.profile.last_name }}  </li><br>
+        {% endif %}
+
+{#        <li> {{ event.venue.address }} </li><br>#}
+        {% if event.price %}
+            <li>price: {{ event.price }} </li><br>
+        {% endif %}
+        <li>activity_note: {{ event.activity_note }} </li><br>
+
+
+        {% if event.payment_qr %}
+            <li>payment_qr:
+                <img src="{{ event.payment_qr.url }}" alt="">
+            </li><br>
+        {% else %}
+            N/A
+        {% endif %}
+
+
+
+
+    </ul>
+    <a href="{% url 'update_event' event.id %}"><-Edit</a> <br>
+    <a href="{% url 'all_events' %}"><-BACK</a>
+    <br><br>
+
+    {% if rsvp_status %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <button>RSVPed</button> (you are in. click to cancel)
+        </form>
+    {% else %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <button>RSVP</button> (you are not in. click to join)
+        </form>
+    {% endif %}
+
+        <li>RSVP: <br>
+            {% for item in event.rsvp_profile_inter_set.all %}
+                {{ item.profile.first_name }} <br>
+                {{ item.RSVP_datetime }} <br>
+            {% endfor %}
+
+        </li><br>
+
+    rsvp_status:{{ rsvp_status }}
+{% endblock %}

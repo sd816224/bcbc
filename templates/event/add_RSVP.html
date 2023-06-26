@@ -1,0 +1,33 @@
+{% extends 'master.html' %}
+
+{% block title %}
+rsvped page
+{% endblock %}
+
+
+{% block content %}
+
+
+    <ul>
+
+        <li>name: {{ event.name }} </li><br>
+        <li>date: {{ event.date }} </li><br>
+        <li>organiser: {{ event.organiser }} </li><br>
+{#        <li> {{ event.venue.address }} </li><br>#}
+        <li>price: {{ event.price }} </li><br>
+        <li>activity_note: {{ event.activity_note }} </li><br>
+        <li>payment_qr:
+            {% if event.payment_qr %}
+            <img src="{{ event.payment_qr.url }}" alt="">
+            {% else %}
+            N/A
+            {% endif %}
+        </li><br>
+        <li>RSVP: {{ event.RSVP }} </li><br>
+
+    </ul>
+    <a href="{% url 'update_event' event.id %}"><-Edit</a> <br>
+    <a href="{% url 'all_events' %}"><-BACK</a>
+    <br><br>
+    <a href="#">RSVPed (you are in now. click to cancel)</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+
+{% block title %}
+birmingham all venues for basketball
+{% endblock %}
+
+
+{% block content %}
+
+    <a href="{% url 'add_venue' %}">add new venue here</a>
+
+    <ul>
+        {%  for venue in venues %}
+        <li> {{ venue.address }}</li>
+        <br>
+        <li> {{ venue.note }}</li>
+        <br>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+
+{% block title %}
+ test page
+{% endblock %}
+
+
+{% block content %}
+
+{#{% for Profile in Profiles %}#}
+
+{#    user:{{ Profile.site_account }} <br>#}
+{#    first_name:{{ Profile.first_name }} <br>#}
+{#    last_name:{{ Profile.last_name }} <br>#}
+{#    nick_name:{{ Profile.nick_name }} <br>#}
+{#    age:{{ Profile.age }} <br>#}
+{#    email:{{ Profile.email }} <br>#}
+{#    phone:{{ Profile.phone }} <br>#}
+{#    shirt_size:{{ Profile.shirt_size }} <br>#}
+{#    bio:{{ Profile.bio }} <br>#}
+{#    play_type:{{ Profile.play_type }} <br>#}
+        {% if user.is_authenticated %}
+            <h1> test pass</h1>
+            {{ user.profile }} <br>
+            {{ user.username }} <br>
+            {{ user.groups }} <br>
+            {{ user.is_active }} <br>
+        {% endif %}
+{#    {% if  %}#}
+{#{% endfor %}#}
+
+{% endblock %}

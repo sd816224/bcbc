@@ -41,7 +41,8 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/ufocz/myland/my_first_django/bcbc",
     "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -117,6 +118,7 @@
       <workItem from="1687779835444" duration="5832000" />
       <workItem from="1687788488444" duration="30000" />
       <workItem from="1687788531518" duration="76000" />
+      <workItem from="1687788650885" duration="791000" />
     </task>
     <servers />
   </component>

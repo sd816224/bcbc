@@ -6,16 +6,27 @@ birmingham all venues for basketball
 
 
 {% block content %}
+    <br>
+    <a class="btn btn-success" href="{% url 'add_venue' %}"> + add new venue</a> <br>
+    <table class="table table-striped table-hove ">
+    <thead class="table-secondary">
+        <tr>
+            <th scope="col"> Name</th>
+            <th scope="col"> Address</th>
+            <th scope="col"> type</th>
+            <th scope="col"> note</th>
+        </tr>
+    </thead>
 
-    <a href="{% url 'add_venue' %}">add new venue here</a>
-
-    <ul>
-        {%  for venue in venues %}
-        <li> {{ venue.address }}</li>
-        <br>
-        <li> {{ venue.note }}</li>
-        <br>
-        {% endfor %}
-    </ul>
-
+    <tbody>
+    {% for venue in venues %}
+        <tr>
+            <td> {{ venue.name }}</td>
+            <td> {{ venue.address }}</td>
+            <td> {{ venue.venue_type }}</td>
+            <td> {{ venue.note }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}

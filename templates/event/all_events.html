@@ -1,22 +1,40 @@
 {% extends 'master.html' %}
 
 {% block title %}
- all event
+ all events
 {% endblock %}
 
 
 {% block content %}
+    <br>
+    <a class="btn btn-success"  href="{% url 'add_event' %}">add new event here</a> <br>
 
-    <a href="{% url 'add_event' %}">add new event here</a> <br><br>
+    <table class="table table-striped table-hove ">
+        <thead class="table-secondary">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Time</th>
+{#                <th scope="col">Duration</th>#}
+                <th scope="col">Venue</th>
+                <th scope="col"> </th>
 
-    <ul>
-        {%  for event in events %}
-        <li> {{ event.event_datetime }}</li>
-        <li> {{ event.name }}</li>
-            <a href="{% url 'event_detail' event.id %}">details...</a> <br>
-        <br>
-        {% endfor %}
-    </ul>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.event_datetime | date:'d/M/Y (l)'}}</td>
+                    <td>{{ event.venue }}</td>
+                    <td >
+                        <a class='btn btn-primary' href="{% url 'event_detail' event.id %}">details</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
 
 
 {% endblock %}

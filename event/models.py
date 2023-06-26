@@ -4,9 +4,15 @@ from members.models import Profile
 # Create your models here.
 
 class Venue(models.Model):
+    VENUE_TYPE=(
+        ('indoor','indoor'),
+        ('outdoor','outdoor'),
+    )
+
     name=models.CharField('Venue Name',max_length=100,null=True)
     address=models.CharField('Venue Address',max_length=120)
-    note=models.TextField('Venue Note',max_length=500)
+    venue_type=models.CharField(max_length=30,choices=VENUE_TYPE,null=True,blank=True)
+    note=models.TextField('Venue Note',max_length=500,blank=True)
 
     def __str__(self):
         return str(self.name)
@@ -14,8 +20,22 @@ class Venue(models.Model):
 
 
 class Event(models.Model):
+
+    DURATION_TYPE=(
+        ('1','1'),
+        ('1.5','1.5'),
+        ('2','2'),
+        ('2.5','2.5'),
+        ('3','3'),
+        ('3.5','3.5'),
+        ('4','4'),
+        ('others','others'),
+    )
+
+
     name=models.CharField('Event Name',max_length=100)
     event_datetime=models.DateTimeField('Event Date')
+    duration=models.CharField(max_length=10,choices=DURATION_TYPE,null=True)
     organiser= models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE)
     venue=models.ForeignKey(Venue,null=True,on_delete=models.SET_NULL)
     # cost=models.DecimalField(max_digits=5,decimal_places=2,blank=True)

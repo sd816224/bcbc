@@ -32,4 +32,15 @@
     - differnt member group and previlage
     - got to learn the fking time entry
 
+
 ## 260623
+issue
+- update event -> jump to event detail
+- event detail. venue anker to venue detail
+- only orgnizer can edit the event detail
+- email the rsvp members if detail updated
+- event model need add limit player 
+- profile edit form upgrade
+- profile events attended and going to attend feature
+- add active class for navbar when click
+- 

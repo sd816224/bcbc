@@ -3,6 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/members/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/authentication/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentication/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/authentication/user_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentication/user_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/all_events.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/all_events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/all_venues.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/all_venues.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/event_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +129,7 @@
       <workItem from="1687779835444" duration="5832000" />
       <workItem from="1687788488444" duration="30000" />
       <workItem from="1687788531518" duration="76000" />
-      <workItem from="1687788650885" duration="791000" />
+      <workItem from="1687788650885" duration="17796000" />
     </task>
     <servers />
   </component>

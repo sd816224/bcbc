@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+{#<div class="container">#}
+<br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
   <a class="navbar-brand" href="{% url 'home' %}">BCBC</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,45 +11,48 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#">BLOG/NEWS</a>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'all_events' %}">Events</a>
       </li>
 
      <li class="nav-item">
-        <a class="nav-link" href="{% url 'all_venues' %}">Birmingham Venue Map</a>
+        <a class="nav-link" href="{% url 'all_venues' %}">Venues </a>
       </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'all_events' %}">events</a>
+
+        <li class="nav-item">
+        <a class="nav-link" href="#">Blog/News</a>
       </li>
 
      <li class="nav-item">
         <a class="nav-link" href="{% url 'contact' %}">CONTACTS</a>
       </li>
 
-        {% if user.is_authenticated %}
-             <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_logout' %}">LOG OUT</a>
-              </li>
+    </ul>
 
-             <li class="nav-item">
-                <a class="nav-link" href=" {% url 'user_profile' user.profile.id %}">Profile</a>
+    <ul class="navbar-nav right">
+
+        {% if user.is_authenticated %}
+            <li class="nav-item" align="right">
+                <a class="nav-link" href=" {% url 'user_profile' user.profile.id %}">{{ user.profile.first_name }} {{ user.profile.last_name }}</a>
 {#                <a class="nav-link" href="{% url 'user_profile' %}">Member Profile</a>#}
               </li>
 
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+              </li>
         {% else %}
              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_register' %}">REGISTER</a>
+                <a class="nav-link" href="{% url 'user_register' %}">Register</a>
             </li>
              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_login' %}">LOG IN</a>
+                <a class="nav-link" href="{% url 'user_login' %}">Login</a>
               </li>
         {% endif %}
 
-     <li class="nav-item">
-        <a class="nav-link" href="{% url 'test' %}">TEST only</a>
-      </li>
+{#     <li class="nav-item">#}
+{#        <a class="nav-link" href="{% url 'test' %}">TEST only</a>#}
+{#      </li>#}
 
 
 
@@ -70,9 +75,10 @@
 
 
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+{#    <form class="form-inline my-2 my-lg-0">#}
+{#      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
+{#      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+{#    </form>#}
   </div>
 </nav>
+{#</div>#}

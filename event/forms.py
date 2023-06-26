@@ -6,16 +6,18 @@ from .models import Venue,Event
 class VenueForm(ModelForm):
     class Meta:
         model=Venue
-        fields=('name','address','note')
+        fields=('name','address','venue_type','note')
 
         labels={
             'name':'',
             'address':'',
+            'venue_type':'venue type',
             'note':'',
         }
         widgets={
             'name':forms.TextInput(attrs={'class':'form-control','placeholder':'enter venue name '}),
             'address':forms.TextInput(attrs={'class':'form-control','placeholder':'enter venue address '}),
+            'venue_type':forms.Select(attrs={'class':'form-control'}),
             'note':forms.Textarea(attrs={'class':'form-control','placeholder': 'please any note for people who like '
                                                                                'to go to play '}),
         }
@@ -32,6 +34,7 @@ class EventForm(ModelForm):
         fields=(
             'name',
             'event_datetime',
+            'duration',
             'organiser',
             'venue',
             'price',
@@ -40,8 +43,8 @@ class EventForm(ModelForm):
         )
         labels={
             'name': "",
-            'event_datetime': "AAsfgsdfg",
             # 'event_datetime': "",
+            'duration': "Event duration",
             'organiser': "Event organiser",
             'venue': "Event venue",
             'price': "",
@@ -51,7 +54,7 @@ class EventForm(ModelForm):
         }
         widgets={
             'name':forms.TextInput(attrs={'class':'form-control','placeholder':'event name'}),
-            # 'event_datetime':forms.DateTimeInput(format='%Y-%m-%d %H:%M',attrs={'class':'form-control','placeholder':'enter event datetime'}),
+            'duration':forms.Select(attrs={'class':'form-control'}),
             # 'event_datetime':forms.DateTimeInput(format='%d/%m/%y %H:%M',attrs={'class':'form-control','placeholder':'enter event datetime'}),
             'organiser':forms.Select(attrs={'class':'form-control'}),
             'venue':forms.Select(attrs={'class':'form-control'}),

@@ -1,65 +1,111 @@
 {% extends 'master.html' %}
-
 {% block title %}
 event detail page
 {% endblock %}
 
 
 {% block content %}
+<div class="col">
+  <div class="col-sm-6">
+    <div class="card" >
+      <div class="card-body">
+        <h4 class="card-title"> {{ event.name }}</h4>
+        <p class="card-text"> {{ event.activity_note }}</p>
+          <table class="table table-striped table-hove" style="width:100%">
+              <tbody>
+                <tr>
+                    <td> Event time </td>
+                    <td> {{ event.event_datetime | date:'d/M/Y (l)'}}</td>
+                </tr>
+                <tr>
+                    <td>Event Duration</td>
+                    <td>{{ event.duration }} (hours)</td>
+                </tr>
+                <tr>
+                    <td>Venue</td>
+                    <td>{{ event.venue }}</td>
+                </tr>
+
+                {% if event.organiser.profile.nick_name %}
+                <tr>
+                    <td>Organiser</td>
+                    <td>{{ event.organiser.profile.nick_name }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>Organiser</td>
+                    <td>{{ event.organiser.profile.first_name }} {{ event.organiser.profile.last_name }}</td>
+                </tr>
+                {% endif %}
+
+                {% if event.price %}
+                <tr>
+                    <td>Price</td>
+                    <td>{{ event.price }}</td>
+                </tr>
+                {% endif %}
 
 
-    <ul>
+          </table>
+            <ul class="list-group list-group-flush">
 
-        <li>name: {{ event.name }} </li><br>
-        <li>date: {{ event.date }} </li><br>
-        {% if event.organiser.profile.nick_name %}
-            <li>organiser: {{ event.organiser.profile.nick_name }} </li><br>
+                <li class="list-group-item">
+                    <a class="btn btn-primary" href="{% url 'all_events' %}">BACK</a>
+                    <a class="btn btn-primary" href="{% url 'update_event' event.id %}">Edit</a>
+                </li>
+            </ul>
+      </div>
+    </div>
+      <br>
+  </div>
+
+{#    here is for image#}
+{#  <div class="col">#}
+{#    <div class="card">#}
+{#        <div class="card-body">#}
+{#            <ul class="list-group list-group-flush">#}
+{#                {% if event.payment_qr %}#}
+{#                <tr>#}
+{#                    <td>Wechat payment QR-code <br>#}
+{#                        <img src="{{ event.payment_qr.url }}" alt="">#}
+{#                    </td>#}
+{##}
+{#                </tr>#}
+{##}
+{#                {% endif %}#}
+{##}
+{#              </tbody>#}
+{#            </ul>#}
+{#        </div>#}
+{#    </div>#}
+{#  </div>#}
+
+
+  <div class="col">
+    <div class="card">
+        <div class="card-body">
+        {% if rsvp_status %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button class="btn btn-success" style="color:white" type="submit">RSVPed</button> (you are in. click to cancel)
+            </form>
         {% else %}
-            <li>organiser: {{ event.organiser.profile.first_name }} {{ event.organiser.profile.last_name }}  </li><br>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button class="btn btn-secondary" style="color:white" type="submit">RSVP</button> (you are not in. click to join)
+            </form>
         {% endif %}
 
-{#        <li> {{ event.venue.address }} </li><br>#}
-        {% if event.price %}
-            <li>price: {{ event.price }} </li><br>
-        {% endif %}
-        <li>activity_note: {{ event.activity_note }} </li><br>
+        <br>
+        <h5 class="card-title">current RSVP members:</h5>
+          {% for item in event.rsvp_profile_inter_set.all %}
+                    {{ forloop.counter }} : {{ item.profile.first_name }} {{ item.profile.last_name }}  >>>
+                    {{ item.RSVP_datetime }} <br>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
 
+</div>
 
-        {% if event.payment_qr %}
-            <li>payment_qr:
-                <img src="{{ event.payment_qr.url }}" alt="">
-            </li><br>
-        {% else %}
-            N/A
-        {% endif %}
-
-
-
-
-    </ul>
-    <a href="{% url 'update_event' event.id %}"><-Edit</a> <br>
-    <a href="{% url 'all_events' %}"><-BACK</a>
-    <br><br>
-
-    {% if rsvp_status %}
-        <form action="" method="POST">
-            {% csrf_token %}
-            <button>RSVPed</button> (you are in. click to cancel)
-        </form>
-    {% else %}
-        <form action="" method="POST">
-            {% csrf_token %}
-            <button>RSVP</button> (you are not in. click to join)
-        </form>
-    {% endif %}
-
-        <li>RSVP: <br>
-            {% for item in event.rsvp_profile_inter_set.all %}
-                {{ item.profile.first_name }} <br>
-                {{ item.RSVP_datetime }} <br>
-            {% endfor %}
-
-        </li><br>
-
-    rsvp_status:{{ rsvp_status }}
 {% endblock %}

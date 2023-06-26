@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
+    PLAYER_TYPE=(
+        ('xiuxian','休闲'),
+        ('yeren','野人'),
+    )
+
     user=models.OneToOneField(User,null=True,on_delete=models.CASCADE)
     first_name=models.CharField('First Name',max_length=50,null=True,)
     last_name=models.CharField('Last Name',max_length=50,null=True,)
@@ -13,14 +18,8 @@ class Profile(models.Model):
     shirt_size= models.CharField('Shirt Size',max_length=20,null=True,blank=True)
     bio=models.TextField('Member Bio', max_length=500,null=True,blank=True)
 
-    caiji=1
-    master=2
-    PLAYER_TYPE=(
-        (caiji,'caiji'),
-        (master,'master'),
-    )
 
-    player_type=models.PositiveSmallIntegerField(choices=PLAYER_TYPE,null=True,blank=True)
+    player_type=models.CharField(max_length=20,choices=PLAYER_TYPE,null=True,blank=True)
 
 
     def __str__(self):

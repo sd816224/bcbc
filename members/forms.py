@@ -25,16 +25,28 @@ class ProfileForm(ModelForm):
             'bio',
             'player_type',
         )
+        labels={
+            'first_name':'First name',
+            'last_name':'Last name',
+            'nick_name':'Nickname',
+            'age':'Age',
+            'email':'Email',
+            'phone':'Phone',
+            'shirt_size':'Shirt size',
+            'bio':'bio',
+            'player_type':'Player type ',
+        }
+
 
         widgets={
-            'first_name':forms.TextInput(attrs={'class':'form-control','placeholder':'enter your first name'}),
-            'last_name':forms.TextInput(),
-            'nick_name':forms.TextInput(),
-            'age':forms.TextInput(),
-            'email':forms.EmailInput(),
-            'phone':forms.TextInput(),
-            'shirt_size':forms.TextInput(),
-            'bio':forms.Textarea(),
+            'first_name':forms.TextInput(attrs={'class':'form-control','placeholder':'first name'}),
+            'last_name':forms.TextInput(attrs={'class':'form-control','placeholder':'last name'}),
+            'nick_name':forms.TextInput(attrs={'class':'form-control','placeholder':'nickname you prefer to be called on court'}),
+            'age':forms.TextInput(attrs={'class':'form-control','placeholder':'age'}),
+            'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'email'}),
+            'phone':forms.TextInput(attrs={'class':'form-control','placeholder':'phone'}),
+            'shirt_size':forms.TextInput(attrs={'class':'form-control','placeholder':''}),
+            'bio':forms.Textarea(attrs={'class':'form-control','placeholder':'introduce yourself here'}),
             'player_type':forms.Select()
         }
 

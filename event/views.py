@@ -5,7 +5,7 @@ from .forms import VenueForm, EventForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-import datetime
+import datetime as dt
 
 # Create your views here.
 
@@ -38,7 +38,7 @@ def update_event(request,event_id):
     if form.is_valid():
         messages.success(request,'form is valid and saved, thanks for the update')
         form.save()
-        return redirect('all_events')
+        return redirect('event_detail',event_id)
     # else:
     #     messages.success(request,'form is not valid, please check..')
         print(form.errors)
@@ -47,11 +47,19 @@ def update_event(request,event_id):
 
 
 def all_events(request):
-    # events=Event.objects.all()
-    events=Event.objects.all().filter(event_datetime__range=[datetime.datetime.now(),datetime.datetime.now()+datetime.timedelta(days=90)])
-    print(datetime.datetime.now())
-    print(datetime.datetime.now()+datetime.timedelta(days=90))
-    return render(request,'event/all_events.html',{'events':events})
+    alert=False
+    if request.method=='POST':
+        messages.success(request,'sorry! you can register as a member to view the events')
+        return HttpResponseRedirect('/all_events?alert=True')
+    else:
+        #debug only
+        events=Event.objects.all()
+
+        # events=Event.objects.all().filter(event_datetime__range=[dt.datetime.now(),dt.datetime.now()+dt.timedelta(days=90)])
+
+        if 'alert' in request.GET:
+            alert=True
+    return render(request,'event/all_events.html',{'events':events,'alert':alert})
 
 def event_detail(request,event_id):
     current_profile=request.user.profile
@@ -75,7 +83,7 @@ def event_detail(request,event_id):
         RSVP_Profile_inter.objects.create(
             event=event,
             profile=current_profile,
-            RSVP_datetime=datetime.datetime.now()
+            RSVP_datetime=dt.datetime.now()
         )
         return HttpResponseRedirect('?rsvp_status=Ture')
 
@@ -92,11 +100,13 @@ def event_detail(request,event_id):
 def add_event(request):
     submitted=False
     if request.method=='POST':
-        print(request.POST['event_datetime'])
+        # print(request.POST['event_datetime'])
 
         form = EventForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            new_event=form.save(commit=False)
+            new_event.organiser=request.user
+            new_event.save()
             return HttpResponseRedirect('/add_event?submitted=True')
     else:
         form=EventForm

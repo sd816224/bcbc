@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
 from .forms import ProfileForm
-
+import datetime as dt
 
 # Create your views here.
 def user_register(request):
@@ -49,8 +49,14 @@ def user_logout(request):
 
 def user_profile(request,profile_id):
     profile=Profile.objects.get(pk=profile_id)
-    # print(profile.event_set.all().values())
-    return render(request,'authentication/profile.html',{'profile':profile})
+
+    attended_events=profile.event_set.all().filter(event_datetime__range=[dt.datetime.now()-dt.timedelta(days=180),dt.datetime.now()])
+    attending_events=profile.event_set.all().filter(event_datetime__range=[dt.datetime.now(),dt.timedelta(days=90)+dt.datetime.now()])
+    print(attended_events.values())
+    print(attending_events.values())
+    return render(request,'authentication/profile.html',{'profile':profile,
+                                                         'attended_events':attended_events,
+                                                         'attending_events':attending_events})
 
 def update_profile(request,profile_id):
     profile=Profile.objects.get(pk=profile_id)

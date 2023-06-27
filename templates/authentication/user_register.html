@@ -13,8 +13,9 @@
         {% csrf_token %}
         {{ form.as_p }} <br>
 {#        {{ form2.as_p }} <br>#}
-
-        <input type="submit" value="register">
+        <input type="checkbox" required="True"> Confirm you give the club consent to use photos/videos on our social media channels
+        <br><br>
+        <input class='btn btn-primary' type="submit" value="register">
     </form>
     ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 

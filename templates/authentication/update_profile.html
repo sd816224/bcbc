@@ -7,15 +7,26 @@ profile page
 
 {% block content %}
 
-    <form action="" method="POST">
-        {% csrf_token %} }}
-        {{ form }}
+    <div class="container-fluid">
+        <div class="row" >
 
-        &star is complusory field to fill
+            <div class="col-lg-7" >
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <br>
+                    <input class="btn btn-primary" type="submit" value="update">
+                </form>
+            </div>
 
-        <input type="submit" value="update">
+{#            <div class="col-lg-3" >#}
+{#                <br><br><br><br><br><br><br><br><br><br><br><br>#}
+{#                <a class="btn btn-success" href="{% url 'add_venue' %}"> + add new venue</a> <br>#}
+{#            </div>#}
 
-    </form>
+        </div>
+    </div>
+
 
 
 {% endblock %}

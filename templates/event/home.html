@@ -6,13 +6,31 @@ home pageeeeeeeeeee
 
 
 {% block content %}
-    this is home <br>
-    edit it at home.html <br>
-    {% if user.is_active %}
-        user active can see this
-    {% endif %}
+    <h2>Birmingham Chinese Basketball Club </h2>
+    <p>founded in 2016, BCBC was set up with the aim of support basketball development within
+    chinese community in birmingham area.
+    We welcome people to be a part of our club, we want to represent the sport in an ethical and community driven way,
+    promoting participation in the sport and the positive impact that competition and physical activity plays in our life,
+        across all ages.</p>
 
-    <br>
-    {{ user.is_active }}
+    <div class="container-fluid">
+        <img src="/media/logo.png" alt="logo" class="rounded float-left" width="120rem"> <br>
+        <h2>Miles</h2>
+        <p>Currently, the club is represented by a single men's team known as the Birmingham Miles,
+            who are actively competing in the local league, WMBL Division 2.</p>
+    </div> <br> <br>
 
+{#    <div class="container-fluid">#}
+{#        <h2>team welcome</h2>#}
+{#        <p>We welcome individuals of all ages, genders, and diverse backgrounds who possess various skills and ethical#}
+{#            values to join and form a team with us.</p>#}
+{#    </div>#}
+
+    <div class="container-fluid">
+        <h2>Volunteer</h2>
+        <p>Volunteering with BCBC is exciting and challenging. We understand that volunteering
+            should be a rewarding and educational experience, and we know that volunteering can be the flame which
+            exposes your true passions. We hope that we can help you while you help us!</p>
+
+    </div>
 {% endblock %}

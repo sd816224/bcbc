@@ -35,12 +35,15 @@
 
 ## 260623
 issue
-- update event -> jump to event detail
-- event detail. venue anker to venue detail
-- only orgnizer can edit the event detail
+- [x] update event -> jump to event detail
+- [x] event detail. venue anker to venue detail
+- [x] only orgnizer can edit the event detail
+- [x] hide the orgnizer of eventform
 - email the rsvp members if detail updated
-- event model need add limit player 
-- profile edit form upgrade
-- profile events attended and going to attend feature
+- [x] event model need add limit player 
+- [x] profile edit form upgrade
+- [x] profile events attended and going to attend feature
 - add active class for navbar when click
-- 
+- [x] register page add: 'Do you give the club consent to use photos/videos on our social media channels'
+- ~~sadd footer: contact.~~
+- [x] event detail has no time

@@ -24,6 +24,8 @@ class VenueForm(ModelForm):
 
 
 class EventForm(ModelForm):
+
+
     event_datetime=forms.DateTimeField(
         widget=forms.DateTimeInput(format='%d/%m/%y %H:%M'),
         input_formats=['%d/%m/%y %H:%M'],
@@ -37,18 +39,20 @@ class EventForm(ModelForm):
             'duration',
             'organiser',
             'venue',
+            'max_players',
             'price',
             'payment_qr',
             'activity_note',
         )
         labels={
-            'name': "",
+            'name': "Event name ",
             # 'event_datetime': "",
             'duration': "Event duration",
-            'organiser': "Event organiser",
-            'venue': "Event venue",
-            'price': "",
-            'payment_qr':'',
+            # 'organiser': "Event organiser",
+            'venue': "Event venue (please'add new venue' if you can not find your venue from the selections)",
+            'max_players':"Max number of players",
+            'price':"Price",
+            'payment_qr':'you can attached wechat payment QR code to take the payment',
             'activity_note': "",
             # 'RSVP':''
         }
@@ -56,16 +60,16 @@ class EventForm(ModelForm):
             'name':forms.TextInput(attrs={'class':'form-control','placeholder':'event name'}),
             'duration':forms.Select(attrs={'class':'form-control'}),
             # 'event_datetime':forms.DateTimeInput(format='%d/%m/%y %H:%M',attrs={'class':'form-control','placeholder':'enter event datetime'}),
-            'organiser':forms.Select(attrs={'class':'form-control'}),
+            'organiser':forms.HiddenInput(),
             'venue':forms.Select(attrs={'class':'form-control'}),
-            'price':forms.TextInput(attrs={'class':'form-control','placeholder':'event price/head'}),
+            'max_players':forms.NumberInput(attrs={'class':'form-control'}),
+            'price':forms.TextInput(attrs={'class':'form-control','placeholder':'your charge per player'}),
             'activity_note':forms.Textarea(attrs={'class':'form-control','placeholder':'enter any note of event'}),
             # 'RSVP':forms.TextInput(attrs={'class':'sr-only sr-only-focusable','placeholder':'????'}),
         }
 
     def __init__(self,*args,**kwargs):
         super(EventForm,self).__init__(*args,**kwargs)
-
         self.fields['event_datetime'].widget.attrs['class']='form-control'
         self.fields['event_datetime'].widget.attrs['placeholder']='event datetime'
-        self.fields['event_datetime'].label='please enter the format as DD/MM/YY HH:MM, example 25/12/23 08:00 for the 2023 xmax'
+        self.fields['event_datetime'].label='please enter the format as DD/MM/YY HH:MM (example: 25/12/23 08:00)'

@@ -64,7 +64,7 @@ profile page
         <div class="card-body">
             <h4 class="card-title"> Events you going to attend</h4>
     {#        <p class="card-text"> bbbbb</p>#}
-            {% for item in profile.event_set.all %}
+            {% for item in attending_events %}
                 <a href="{% url 'event_detail' item.id %}"> {{ item }}</a> : {{ item.event_datetime }} <br>
             {% endfor %}
 
@@ -75,7 +75,7 @@ profile page
         <div class="card-body">
             <h4 class="card-title"> Events you attended</h4>
     {#        <p class="card-text"> bbbbb</p>#}
-            {% for item in profile.event_set.all %}
+            {% for item in attended_events %}
                 <a href="{% url 'event_detail' item.id %}"> {{ item }}</a> : {{ item.event_datetime }} <br>
             {% endfor %}
 

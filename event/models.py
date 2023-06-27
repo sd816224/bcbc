@@ -38,7 +38,7 @@ class Event(models.Model):
     duration=models.CharField(max_length=10,choices=DURATION_TYPE,null=True)
     organiser= models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE)
     venue=models.ForeignKey(Venue,null=True,on_delete=models.SET_NULL)
-    # cost=models.DecimalField(max_digits=5,decimal_places=2,blank=True)
+    max_players=models.SmallIntegerField(null=True,blank=True)
     price=models.CharField('Event price',max_length=50,null=True,blank=True)
     activity_note=models.TextField(max_length=200, null=True,blank=True)
     payment_qr=models.ImageField(blank=True,null=True,upload_to='images/') # looking into detial for sizegetattr(): attribute name must be string

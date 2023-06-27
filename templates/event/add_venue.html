@@ -7,8 +7,10 @@
 
 {% block content %}
     {% if submitted %}
-
-    thanks for your sharing
+        <br>
+    <h3> thanks for your sharing </h3>
+        <br>
+        <a class="btn btn-primary" href="{% url 'add_event' %}">continue to add event</a>
     {% else %}
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}

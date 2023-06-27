@@ -15,7 +15,7 @@ event detail page
               <tbody>
                 <tr>
                     <td> Event time </td>
-                    <td> {{ event.event_datetime | date:'d/M/Y (l)'}}</td>
+                    <td> {{ event.event_datetime | date:'d/M/Y -- g:iA -- (l)'}}</td>
                 </tr>
                 <tr>
                     <td>Event Duration</td>
@@ -23,7 +23,8 @@ event detail page
                 </tr>
                 <tr>
                     <td>Venue</td>
-                    <td>{{ event.venue }}</td>
+                    <td>{{ event.venue }} <br>
+                    {{ event.venue.address }}</td>
                 </tr>
 
                 {% if event.organiser.profile.nick_name %}
@@ -35,6 +36,13 @@ event detail page
                 <tr>
                     <td>Organiser</td>
                     <td>{{ event.organiser.profile.first_name }} {{ event.organiser.profile.last_name }}</td>
+                </tr>
+                {% endif %}
+
+                {% if event.max_players %}
+                <tr>
+                    <td>Max players</td>
+                    <td>{{ event.max_players }}</td>
                 </tr>
                 {% endif %}
 
@@ -51,7 +59,9 @@ event detail page
 
                 <li class="list-group-item">
                     <a class="btn btn-primary" href="{% url 'all_events' %}">BACK</a>
-                    <a class="btn btn-primary" href="{% url 'update_event' event.id %}">Edit</a>
+                    {% if user.profile.id == event.organiser.profile.id %}
+                        <a class="btn btn-primary" href="{% url 'update_event' event.id %}">Edit</a>
+                    {% endif %}
                 </li>
             </ul>
       </div>

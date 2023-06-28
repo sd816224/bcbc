@@ -42,7 +42,7 @@ class Event(models.Model):
     price=models.CharField('Event price',max_length=50,null=True,blank=True)
     activity_note=models.TextField(max_length=200, null=True,blank=True)
     payment_qr=models.ImageField(blank=True,null=True,upload_to='images/') # looking into detial for sizegetattr(): attribute name must be string
-    RSVP=models.ManyToManyField(Profile,blank=True,null=True,through='RSVP_Profile_inter')
+    RSVP=models.ManyToManyField(Profile,blank=True,through='RSVP_Profile_inter')
     # RSVP=models.ManyToManyField(Profile,blank=True,null=True)
 
 

@@ -47,3 +47,7 @@ issue
 - [x] register page add: 'Do you give the club consent to use photos/videos on our social media channels'
 - ~~sadd footer: contact.~~
 - [x] event detail has no time
+
+##280623
+- learn decouple
+- 

@@ -36,7 +36,7 @@
 ## 260623
 issue
 - [x] update event -> jump to event detail
-- [x] event detail. venue anker to venue detail
+-  event detail. venue anker to venue page
 - [x] only orgnizer can edit the event detail
 - [x] hide the orgnizer of eventform
 - email the rsvp members if detail updated
@@ -48,6 +48,14 @@ issue
 - ~~sadd footer: contact.~~
 - [x] event detail has no time
 
-##280623
+## 280623
 - learn decouple
+- give event edit button for admin
+- duplicate event 
+
+## 290623
+- user aothentication
+
+## 030723
+- add social auth
 - 

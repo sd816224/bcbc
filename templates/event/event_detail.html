@@ -107,7 +107,7 @@ event detail page
         {% endif %}
 
         <br>
-        <h5 class="card-title">current RSVP members:</h5>
+        <h5 class="card-title">Attendee:</h5>
           {% for item in event.rsvp_profile_inter_set.all %}
                     {{ forloop.counter }} : {{ item.profile.first_name }} {{ item.profile.last_name }}  >>>
                     {{ item.RSVP_datetime }} <br>

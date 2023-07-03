@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bcbc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bcbc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/event_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/update_event.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/update_event.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +26,17 @@
         <option value="Python Script" />
         <option value="HTML File" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -42,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ufocz/myland/my_first_django/bcbc/templates/event",
+    "last_opened_file_path": "C:/Users/ufocz/myland/my_first_django/bcbc",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
@@ -122,7 +137,8 @@
       <workItem from="1687779835444" duration="5832000" />
       <workItem from="1687788488444" duration="30000" />
       <workItem from="1687788531518" duration="76000" />
-      <workItem from="1687788650885" duration="46252000" />
+      <workItem from="1687788650885" duration="54029000" />
+      <workItem from="1688024556100" duration="8257000" />
     </task>
     <servers />
   </component>

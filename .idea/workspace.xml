@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bcbc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bcbc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event/event_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/event_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event/update_event.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/update_event.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +131,7 @@
       <workItem from="1687788488444" duration="30000" />
       <workItem from="1687788531518" duration="76000" />
       <workItem from="1687788650885" duration="54029000" />
-      <workItem from="1688024556100" duration="8257000" />
+      <workItem from="1688024556100" duration="8540000" />
     </task>
     <servers />
   </component>

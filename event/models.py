@@ -1,6 +1,6 @@
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.db import models
-from members.models import Profile
+from members.models import Profile,User
 # Create your models here.
 
 class Venue(models.Model):

@@ -17,10 +17,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path,include
+from members.views import register_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('event.urls')),
     path('members/', include('members.urls')),
     path('members/', include('django.contrib.auth.urls')),
+    path('accounts/register_login/',register_login,name='register_login'),
+    path('accounts/',include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

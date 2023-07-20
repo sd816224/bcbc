@@ -28,5 +28,5 @@ urlpatterns = [
     path('event_detail/<event_id>/', views.event_detail,name='event_detail'),
     # path('event_detail/<event_id>/<user_id>/', views.add_RSVP,name='add_RSVP'),
 
-
+    path('send_notification/',views.send_notification,name='send_notification'),
 ]

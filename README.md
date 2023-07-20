@@ -57,5 +57,18 @@ issue
 - user aothentication
 
 ## 030723
-- add social auth
-- 
+- [x] add social auth
+
+## 130723
+- custom registration form. and email authentication
+  - email
+  - password
+  - name
+  
+## 140723
+- learn 'class based view'
+  
+## 180723
+- languages switch
+- upgrade warning message box and message level
+- old members proto

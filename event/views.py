@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from .models import Venue,Event,RSVP_Profile_inter
 # from .models import Venue,Event,RSVP_Profile_inter
@@ -6,6 +7,9 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 import datetime as dt
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 # Create your views here.
 
@@ -113,3 +117,13 @@ def add_event(request):
         if 'submitted' in request.GET:
             submitted=True
     return render(request,'event/add_event.html',{"form":form,'submitted':submitted})
+
+def send_notification(request):
+    if send_mail(
+        subject='test subject ',
+        message='test message 22',
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=['bet816224@yahoo.com','luckysportsman456@gmail.com'],
+    ) ==1:
+        print('email sent')
+

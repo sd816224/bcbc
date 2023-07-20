@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+#%%
+
+os.environ.get()
+
+#%%
 # from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,7 +47,56 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'event',
     'members',
+    'django.contrib.sites',  # make sure sites is included
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.weixin',
 ]
+SOCIALACCOUNT_PROVIDERS = {
+    'weixin': {
+        # 'AUTHORIZE_URL': 'https://open.weixin.qq.com/connect/oauth2/authorize',  # for media platform
+        'SCOPE': ['snsapi_base'],
+    }
+}
+
+AUTH_USER_MODEL='members.User'
+
+###
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # existing backend
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    }
+}
+
+LOGIN_REDIRECT_URL='user_profile'
+SOCIALACCOUNT_LOGIN_ON_GET=True # skip the loginvia page
+
+SITE_ID = 1
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+###
+
+#76748996642-f7q3d9bcunkju41u3nl8p4uhvd331d7j.apps.googleusercontent.com
+#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
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -145,3 +199,4 @@ EMAIL_HOST_USER=env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=env('EMAIL_HOST_PASSWORD')
 
 RECIPIENT_ADDRESS=env('RECIPIENT_ADDRESS')
+

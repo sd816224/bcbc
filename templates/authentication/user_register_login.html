@@ -1,0 +1,62 @@
+{% extends 'master.html' %}
+{% load account socialaccount %}
+{% load i18n %}
+{% block title %}
+ user register login
+{% endblock %}
+{% load static %}
+
+
+{% block content %}
+
+{#    <div class="text-center mt-4">#}
+{#        <h1>Signin with</h1>#}
+{#    </div>#}
+    {% get_providers as socialaccount_providers %}
+        {% if socialaccount_providers %}
+            <div class="socialaccount_ballot text-center my-4">
+            <a href="{% provider_login_url 'google' method='oauth2' %}"> <img src="{% static 'btn_google_signin_dark_pressed_web@2x.png' %}" alt="google login" width="250" height="60"> </a>
+            </div>
+        {% endif %}
+
+    <div class="h2 text-center border-top border-bottom my-3"> or </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col bg-light border border-secondary m-2">
+      <div class="text-center ">
+          <h3 class=" my-4">Reigster locally</h3>
+      </div>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }} <br>
+    {#        {{ form2.as_p }} <br>#}
+            <input type="checkbox" required="True"> Confirm you give the club consent to use photos/videos on our social media channels
+            <br><br>
+            <button class='btn btn-primary my-3' type="submit" name="register"> Register </button>
+        </form>
+    </div>
+{############################################}
+    <div class="col bg-light border border-secondary m-2">
+        <div class="text-center">
+            <h3 class="mt-4" style='margin:0px'>Signin locally</h3>
+        </div>
+
+            <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label style='margin:0px' for="email"></label>
+                <input class='form-control'  type="text" name="email" id='email' placeholder="Email" required>
+
+
+            <label   for="password"></label>
+                <input class='form-control' type="password" name="password" id='password' placeholder="Enter your password" required>
+                <br>
+                <button class='btn btn-primary'  type="submit" name="login"> Sign-in </button>
+        </form>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

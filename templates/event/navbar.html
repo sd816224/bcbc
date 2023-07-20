@@ -8,11 +8,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="{% url 'home' %}">About <span class="sr-only">(current)</span></a>
       </li>
         <li class="nav-item">
-            <a class="nav-link active" href="{% url 'all_events' %}">Events</a>
+            <a class="nav-link " href="{% url 'all_events' %}">Events</a>
       </li>
 
      <li class="nav-item">
@@ -28,31 +28,41 @@
         <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
       </li>
 
+
+         <li class="nav-item">
+        <a class="nav-link" href="{% url 'test' %}">test</a>
+      </li>
+
     </ul>
 
-    <ul class="navbar-nav right">
 
+    <ul class="navbar-nav right">
         {% if user.is_authenticated %}
             <li class="nav-item" align="right">
-                <a class="nav-link" href=" {% url 'user_profile' user.profile.id %}">{{ user.profile.first_name }} {{ user.profile.last_name }}</a>
+                <a class="nav-link" href=" {% url 'user_profile' %}">
+
+                    {% if user.profile.first_name  %}
+                        {{ user.profile.first_name}}
+                    {% else %}
+                        Yo! bro. please update profile. at least tell me your name.
+                    {% endif %}
+
+                </a>
 {#                <a class="nav-link" href="{% url 'user_profile' %}">Member Profile</a>#}
               </li>
 
              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'user_logout' %}">Sign-out</a>
               </li>
+
         {% else %}
+
              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_register' %}">Register</a>
-            </li>
-             <li class="nav-item">
-                <a class="nav-link" href="{% url 'user_login' %}">Login</a>
+                <a class="nav-link" href="{% url 'register_login' %}">Register/Sign-in</a>
               </li>
+
         {% endif %}
 
-{#     <li class="nav-item">#}
-{#        <a class="nav-link" href="{% url 'test' %}">TEST only</a>#}
-{#      </li>#}
 
 
 

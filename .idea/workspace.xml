@@ -2,9 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/members/decorators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/members/token.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/authentication/acc_active_email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bcbc/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bcbc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bcbc/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db - Copy.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0002_rsvp_profile_inter_note.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0003_remove_rsvp_profile_inter_rsvp_datetime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0004_rsvp_profile_inter_rsvp_datetime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0005_rename_date_event_event_datetime.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0006_event_duration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0007_alter_event_duration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0008_alter_event_duration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0009_venue_venue_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0010_alter_venue_note.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0011_alter_event_organiser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0012_alter_event_organiser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0013_event_max_players.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/migrations/0014_alter_event_rsvp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/members/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/members/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/migrations/0002_alter_profile_player_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/migrations/0003_alter_profile_player_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/members/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/members/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/members/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/members/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/authentication/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authentication/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/authentication/user_login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/authentication/user_register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +56,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="markdown" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -52,7 +90,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ufocz/myland/my_first_django/bcbc",
+    "last_opened_file_path": "C:/Users/ufocz/myland/my_first_django/bcbc/static/images",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
@@ -60,13 +98,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static\images" />
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static" />
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\authentication" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\event" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\authentication" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\members" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\event" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static" />
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static\images" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\media" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc" />
@@ -134,7 +174,11 @@
       <workItem from="1687788488444" duration="30000" />
       <workItem from="1687788531518" duration="76000" />
       <workItem from="1687788650885" duration="54029000" />
-      <workItem from="1688024556100" duration="11209000" />
+      <workItem from="1688024556100" duration="12936000" />
+      <workItem from="1689149108634" duration="12225000" />
+      <workItem from="1689343373729" duration="24493000" />
+      <workItem from="1689601368711" duration="62000" />
+      <workItem from="1689601452182" duration="23893000" />
     </task>
     <servers />
   </component>

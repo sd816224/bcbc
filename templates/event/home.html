@@ -1,7 +1,7 @@
 {% extends 'master.html' %}
-
+{% load static %}
 {% block title %}
-home pageeeeeeeeeee
+home page
 {% endblock %}
 
 
@@ -14,7 +14,7 @@ home pageeeeeeeeeee
         across all ages.</p>
 
     <div class="container-fluid">
-        <img src="/media/logo.png" alt="logo" class="rounded float-left" width="120rem"> <br>
+        <img src="{% static 'logo.png' %}" alt="logo" class="rounded float-left" width="120rem"> <br>
         <h2>Miles</h2>
         <p>Currently, the club is represented by a single men's team known as the Birmingham Miles,
             who are actively competing in the local league, WMBL Division 2.</p>

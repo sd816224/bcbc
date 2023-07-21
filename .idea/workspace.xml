@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bcbc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bcbc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bcbc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/images/WeChat_Screenshot_20230626230504.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/WeChat_Screenshot_20230626230504.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/btn_google_signin_dark_pressed_web@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/home.html" afterDir="false" />
-    </list>
+    <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,7 +138,7 @@
       <workItem from="1689343373729" duration="24493000" />
       <workItem from="1689601368711" duration="62000" />
       <workItem from="1689601452182" duration="39855000" />
-      <workItem from="1689935950154" duration="591000" />
+      <workItem from="1689935950154" duration="892000" />
     </task>
     <servers />
   </component>

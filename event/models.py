@@ -3,19 +3,19 @@ from django.db import models
 from members.models import Profile,User
 # Create your models here.
 
-class Venue(models.Model):
-    VENUE_TYPE=(
-        ('indoor','indoor'),
-        ('outdoor','outdoor'),
-    )
-
-    name=models.CharField('Venue Name',max_length=100,null=True)
-    address=models.CharField('Venue Address',max_length=120)
-    venue_type=models.CharField(max_length=30,choices=VENUE_TYPE,null=True,blank=True)
-    note=models.TextField('Venue Note',max_length=500,blank=True)
-
-    def __str__(self):
-        return str(self.name)
+# class Venue(models.Model):
+#     VENUE_TYPE=(
+#         ('indoor','indoor'),
+#         ('outdoor','outdoor'),
+#     )
+#
+#     name=models.CharField('Venue Name',max_length=100,null=True)
+#     address=models.CharField('Venue Address',max_length=120)
+#     venue_type=models.CharField(max_length=30,choices=VENUE_TYPE,null=True,blank=True)
+#     note=models.TextField('Venue Note',max_length=500,blank=True)
+#
+#     def __str__(self):
+#         return str(self.name)
 
 
 
@@ -37,7 +37,7 @@ class Event(models.Model):
     event_datetime=models.DateTimeField('Event Date')
     duration=models.CharField(max_length=10,choices=DURATION_TYPE,null=True)
     organiser= models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE)
-    venue=models.ForeignKey(Venue,null=True,on_delete=models.SET_NULL)
+    venue=models.CharField('Venue address',max_length=200,null=True)
     max_players=models.SmallIntegerField(null=True,blank=True)
     price=models.CharField('Event price',max_length=50,null=True,blank=True)
     activity_note=models.TextField(max_length=200, null=True,blank=True)

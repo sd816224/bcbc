@@ -72,3 +72,10 @@ issue
 - languages switch
 - upgrade warning message box and message level
 - old members proto
+
+## 210723
+- blog/news create function
+- integrate google map . to replace the venue model
+- training interact section
+- view orgnier/others profile 
+- 

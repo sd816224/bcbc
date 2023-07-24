@@ -1,9 +1,7 @@
 from django.contrib import admin
-from .models import Venue
 from .models import Event
 from .models import RSVP_Profile_inter
 # Register your models here.
-admin.site.register(Venue)
 admin.site.register(Event)
 # admin.site.register(RSVP_Profile_inter)
 

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="" />
+    <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bcbc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/event/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="markdown" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -42,33 +56,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ufocz/myland/my_first_django/bcbc/static&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ufocz/myland/my_first_django/bcbc/static/logo.png&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/ufocz/myland/my_first_django/bcbc/static",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "terminal",
+    "two.files.diff.last.used.file": "C:/Users/ufocz/myland/my_first_django/bcbc/static/logo.png"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static" />
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\event" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static\images" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\authentication" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\event" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc" />
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static\images" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\media" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc" />
     </key>
   </component>
   <component name="RunManager">
@@ -138,7 +152,7 @@
       <workItem from="1689343373729" duration="24493000" />
       <workItem from="1689601368711" duration="62000" />
       <workItem from="1689601452182" duration="39855000" />
-      <workItem from="1689935950154" duration="892000" />
+      <workItem from="1689935950154" duration="22234000" />
     </task>
     <servers />
   </component>

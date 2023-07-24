@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-50k1-txn%g0=i#7ez+@mgt$36)1p-rprce_vem#q9b4#1-llg$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1']
 # ALLOWED_HOSTS = []

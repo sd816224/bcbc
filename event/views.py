@@ -1,8 +1,8 @@
 
 from django.shortcuts import render, redirect
-from .models import Venue,Event,RSVP_Profile_inter
+from .models import Event,RSVP_Profile_inter
 # from .models import Venue,Event,RSVP_Profile_inter
-from .forms import VenueForm, EventForm
+from .forms import EventForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -16,25 +16,27 @@ from django.conf import settings
 def home(request):
     return render(request,'event/home.html',{})
 
+def under_construction(request):
+    return render(request,'event/under_construction.html')
 def contact(request):
     return render(request,'event/contact.html',{})
 
-def all_venues(request):
-    venues=Venue.objects.all()
-    return render(request,'event/all_venues.html',{'venues':venues})
+# def all_venues(request):
+#     venues=Venue.objects.all()
+#     return render(request,'event/all_venues.html',{'venues':venues})
 
-def add_venue(request):
-    submitted=False
-    if request.method=='POST':
-        form = VenueForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/add_venue?submitted=True')
-    else:
-        form = VenueForm
-        if 'submitted' in request.GET:
-            submitted=True
-    return render(request,'event/add_venue.html',{'form':form,'submitted':submitted})
+# def add_venue(request):
+#     submitted=False
+#     if request.method=='POST':
+#         form = VenueForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect('/add_venue?submitted=True')
+#     else:
+#         form = VenueForm
+#         if 'submitted' in request.GET:
+#             submitted=True
+#     return render(request,'event/add_venue.html',{'form':form,'submitted':submitted})
 
 def update_event(request,event_id):
     event=Event.objects.get(pk=event_id)

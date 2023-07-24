@@ -6,31 +6,48 @@ home page
 
 
 {% block content %}
-    <h2>Birmingham Chinese Basketball Club </h2>
-    <p>founded in 2016, BCBC was set up with the aim of support basketball development within
-    chinese community in birmingham area.
-    We welcome people to be a part of our club, we want to represent the sport in an ethical and community driven way,
-    promoting participation in the sport and the positive impact that competition and physical activity plays in our life,
-        across all ages.</p>
 
-    <div class="container-fluid">
-        <img src="{% static 'logo.png' %}" alt="logo" class="rounded float-left" width="120rem"> <br>
-        <h2>Miles</h2>
-        <p>Currently, the club is represented by a single men's team known as the Birmingham Miles,
+<div class="container">
+  <div class="row mt-5" >
+    <h3 style="font-family:Arial Black"> BCBC </h3>
+    <p> Birmingham Chinese Basketball Club founded and registered with BasketballEngland in 2015, was set up with the aim
+        of support basketball development within chinese community in birmingham area. Our goal is to create a fun, positive
+        and encouraging environment for individuals of all ages, from youngsters to seniors, as well as for teams.
+        We strongly believe in the philosophy that "ball is life" where people learn and grow through their passion and
+        love for the sport, which becomes a cherished treasure throughout their entire lives.</p>
+  </div>
+
+  <div class="row"  >
+      <p> 俱乐部成立与2015年, 隶属于BasketballEngland, 其使命是为伯明翰华人, 远在他乡也能持续参与自己热爱的运动. <br>目标是为不同年龄段,
+          不同水平的爱好者提供积极且有趣的打球环境. <br>我们始终相信‘"ball is life"的理念, 对热爱的追求和探索可以指导我们生活的各个领域, 将成为我们一生的宝贵财富.</p>
+  </div>
+    <hr class="rounded">
+
+    <div class="row">
+        <div class="col-md-auto"></div>
+            <div class="col-sm-2" >
+                <img src="{% static 'logo.png' %}" alt="logo" class="rounded float-left" width="120rem">
+            </div>
+        <div class="col" >
+            <p>Currently, the club is represented by a single men's team known as the Birmingham Miles,
             who are actively competing in the local league, WMBL Division 2.</p>
-    </div> <br> <br>
+            <p> Birmingham Miles 为俱乐部男子篮球队, 目前处于WMBL联赛第二级别.最好成绩为2017-2018赛季DIV2亚军. 每周二训练+对抗. </p>
+        </div>
+    </div>
 
-{#    <div class="container-fluid">#}
-{#        <h2>team welcome</h2>#}
-{#        <p>We welcome individuals of all ages, genders, and diverse backgrounds who possess various skills and ethical#}
-{#            values to join and form a team with us.</p>#}
-{#    </div>#}
-
-    <div class="container-fluid">
-        <h2>Volunteer</h2>
-        <p>Volunteering with BCBC is exciting and challenging. We understand that volunteering
-            should be a rewarding and educational experience, and we know that volunteering can be the flame which
-            exposes your true passions. We hope that we can help you while you help us!</p>
+    <div class="row">
+        <div class="col-md-auto" ></div>
+            <div class="col-sm-2" >
+                <img src="{% static 'add-button.png' %}" alt="logo" class="rounded float-left" width="120rem">
+            </div>
+        <div class="col">
+            <br><br>
+            <p>欢迎不同性别，年龄,竞技水平的队员组成球队.俱乐部愿意为其开发更多的比赛和训练环境.</p>
+            <p>同时欢迎对体育管理，新媒体运营，活动策划感兴趣的朋友加入我们，请联系<a href="{% url 'contact' %}">contact</a></p>
+        </div>
 
     </div>
+    <hr>
+</div>
+
 {% endblock %}

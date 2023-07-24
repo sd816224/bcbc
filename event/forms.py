@@ -1,27 +1,27 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Venue,Event
+from .models import Event
 
 
-class VenueForm(ModelForm):
-    class Meta:
-        model=Venue
-        fields=('name','address','venue_type','note')
-
-        labels={
-            'name':'',
-            'address':'',
-            'venue_type':'venue type',
-            'note':'',
-        }
-        widgets={
-            'name':forms.TextInput(attrs={'class':'form-control','placeholder':'enter venue name '}),
-            'address':forms.TextInput(attrs={'class':'form-control','placeholder':'enter venue address '}),
-            'venue_type':forms.Select(attrs={'class':'form-control'}),
-            'note':forms.Textarea(attrs={'class':'form-control','placeholder': 'please any note for people who like '
-                                                                               'to go to play '}),
-        }
-
+# class VenueForm(ModelForm):
+#     class Meta:
+#         model=Venue
+#         fields=('name','address','venue_type','note')
+#
+#         labels={
+#             'name':'',
+#             'address':'',
+#             'venue_type':'venue type',
+#             'note':'',
+#         }
+#         widgets={
+#             'name':forms.TextInput(attrs={'class':'form-control','placeholder':'enter venue name '}),
+#             'address':forms.TextInput(attrs={'class':'form-control','placeholder':'enter venue address '}),
+#             'venue_type':forms.Select(attrs={'class':'form-control'}),
+#             'note':forms.Textarea(attrs={'class':'form-control','placeholder': 'please any note for people who like '
+#                                                                                'to go to play '}),
+#         }
+#
 
 class EventForm(ModelForm):
 
@@ -61,7 +61,7 @@ class EventForm(ModelForm):
             'duration':forms.Select(attrs={'class':'form-control'}),
             # 'event_datetime':forms.DateTimeInput(format='%d/%m/%y %H:%M',attrs={'class':'form-control','placeholder':'enter event datetime'}),
             'organiser':forms.HiddenInput(),
-            'venue':forms.Select(attrs={'class':'form-control'}),
+            'venue':forms.TextInput(attrs={'class':'form-control'}),
             'max_players':forms.NumberInput(attrs={'class':'form-control'}),
             'price':forms.TextInput(attrs={'class':'form-control','placeholder':'your charge per player'}),
             'activity_note':forms.Textarea(attrs={'class':'form-control','placeholder':'enter any note of event'}),

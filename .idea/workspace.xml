@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="44031900-938e-40ae-8988-47a7bb7b3710" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bcbc/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bcbc/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/event/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/event/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +140,7 @@
       <workItem from="1689343373729" duration="24493000" />
       <workItem from="1689601368711" duration="62000" />
       <workItem from="1689601452182" duration="39855000" />
-      <workItem from="1689935950154" duration="22234000" />
+      <workItem from="1689935950154" duration="23576000" />
     </task>
     <servers />
   </component>

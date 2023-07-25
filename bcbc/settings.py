@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-50k1-txn%g0=i#7ez+@mgt$36)1p-rprce_vem#q9b4#1-llg$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1']
+ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1','bcbasketball.co.uk']
 # ALLOWED_HOSTS = []
 
 
@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'event',
     'members',
+    'blog',
+    'ckeditor',
     'django.contrib.sites',  # make sure sites is included
     'allauth',
     'allauth.account',

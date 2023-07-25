@@ -44,33 +44,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ufocz/myland/my_first_django/bcbc/static",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "terminal",
-    "two.files.diff.last.used.file": "C:/Users/ufocz/myland/my_first_django/bcbc/static/logo.png"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ufocz/myland/my_first_django/bcbc/templates/blog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/ufocz/myland/my_first_django/bcbc/static/logo.png&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\blog" />
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\blog" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\event" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static\images" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates\authentication" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\media\blog" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\templates" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static" />
       <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\static\images" />
-      <recent name="C:\Users\ufocz\myland\my_first_django\bcbc\media" />
     </key>
   </component>
   <component name="RunManager">
@@ -140,7 +140,9 @@
       <workItem from="1689343373729" duration="24493000" />
       <workItem from="1689601368711" duration="62000" />
       <workItem from="1689601452182" duration="39855000" />
-      <workItem from="1689935950154" duration="23576000" />
+      <workItem from="1689935950154" duration="26619000" />
+      <workItem from="1690210405564" duration="21727000" />
+      <workItem from="1690301705808" duration="2975000" />
     </task>
     <servers />
   </component>

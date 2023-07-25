@@ -78,4 +78,7 @@ issue
 - integrate google map . to replace the venue model
 - training interact section
 - view orgnier/others profile 
-- 
+
+## 250723
+- add blog.
+- add form and edit page.

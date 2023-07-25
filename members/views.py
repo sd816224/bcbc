@@ -110,6 +110,14 @@ def user_profile(request):
                                                          'attended_events':attended_events,
                                                          'attending_events':attending_events})
 
+def other_profile(request,profile_id):
+    profile=Profile.objects.get(pk=profile_id)
+    attended_events=profile.event_set.all().filter(event_datetime__range=[dt.datetime.now()-dt.timedelta(days=180),dt.datetime.now()])
+    attending_events=profile.event_set.all().filter(event_datetime__range=[dt.datetime.now(),dt.timedelta(days=90)+dt.datetime.now()])
+
+    return render(request, 'authentication/profile.html', {'profile': profile,
+                                                           'attended_events': attended_events,
+                                                           'attending_events': attending_events})
 def update_profile(request,profile_id):
     profile=Profile.objects.get(pk=profile_id)
     form=ProfileForm(request.POST or None, instance=profile)

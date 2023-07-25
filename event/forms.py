@@ -49,7 +49,7 @@ class EventForm(ModelForm):
             # 'event_datetime': "",
             'duration': "Event duration",
             # 'organiser': "Event organiser",
-            'venue': "Event venue (please'add new venue' if you can not find your venue from the selections)",
+            'venue': "Event address",
             'max_players':"Max number of players",
             'price':"Price",
             'payment_qr':'you can attached wechat payment QR code to take the payment',

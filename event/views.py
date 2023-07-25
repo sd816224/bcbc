@@ -59,7 +59,7 @@ def all_events(request):
         return HttpResponseRedirect('/all_events?alert=True')
     else:
         #debug only
-        events=Event.objects.all()
+        events=Event.objects.all().order_by('event_datetime')
 
         # events=Event.objects.all().filter(event_datetime__range=[dt.datetime.now(),dt.datetime.now()+dt.timedelta(days=90)])
 
@@ -78,7 +78,7 @@ def event_detail(request,event_id):
         rsvp_status = False
 
     #debug area
-    print(event.organiser.profile.first_name)
+    print(event.organiser.profile.id)
     # print(current_profile.event_set.all())
     # print(event.rsvp_profile_inter_set.all().order_by('-RSVP_datetime'))
     # print(current_profile)

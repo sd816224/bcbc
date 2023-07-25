@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+
+{% block title %}
+ all blogs
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        <br>
+    {% for blog in blogs %}
+
+        <div class="container row">
+            <div class="col-md-4" >
+                {% if blog.photo %}
+                    <a href="{% url 'blog_detail' blog.id%}">
+                        <img src="{{ blog.photo.url }}" style='max-width:20rem; max-height:18rem' >
+                    </a>
+
+                {% endif %}
+            </div>
+
+            <div class="col-lg-7" >
+                <a style="color:black" href="{% url 'blog_detail' blog.id%}"><h2 >{{ blog.title }}</h2></a>
+                <br>
+                <h6>Posted on {{ blog.datetime | date:'d/M/Y'}}</h6>
+                <p>{{ blog.snippet |safe}} <a href="{% url 'blog_detail' blog.id%}"> [.....更多] </a> </p>
+            </div>
+        </div>
+        <hr>
+        <br>
+    {% endfor %}
+
+{#style="background-color:red"#}
+
+
+  </div>
+
+</div>
+
+
+    <div class="container">
+
+
+
+    </div>
+
+
+
+{% endblock %}

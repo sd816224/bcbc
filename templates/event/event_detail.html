@@ -27,17 +27,17 @@ event detail page
                     {{ event.venue.address }}</td>
                 </tr>
 
-                {% if event.organiser.profile.nick_name %}
+
                 <tr>
                     <td>Organiser</td>
-                    <td>{{ event.organiser.profile.nick_name }}</td>
+                    {% if event.organiser.profile.nick_name %}
+                        <td><a href="{% url 'other_profile' event.organiser.profile.id %}">{{ event.organiser.profile.nick_name }}</a></td>
+                     {% else %}
+                         <td><a href="">{{ event.organiser.profile.first_name }} {{ event.organiser.profile.last_name }}</a></td>
+                     {% endif %}
                 </tr>
-                {% else %}
-                <tr>
-                    <td>Organiser</td>
-                    <td>{{ event.organiser.profile.first_name }} {{ event.organiser.profile.last_name }}</td>
-                </tr>
-                {% endif %}
+
+
 
                 {% if event.max_players %}
                 <tr>

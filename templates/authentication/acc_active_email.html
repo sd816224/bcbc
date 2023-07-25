@@ -1,10 +1,13 @@
 {% autoescape off %}
 
-hi {{ user }}
-please click on the link to confirm your registration,
+hi xiongdi!
+
+please click on the link to confirm your registration of BCBC.
 
 http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
 
 if you think, its not you, then just ignore this email.
+
+if you have any problems accessing your account, please contact bcbc2015.lee@yahoo.com
 
 {% endautoescape %}

@@ -23,6 +23,7 @@ urlpatterns = [
     path('user_logout/', views.user_logout,name='user_logout'),
     path('user_profile/', views.user_profile,name='user_profile'),
     path('update_profile/<profile_id>/', views.update_profile,name='update_profile'),
+    path('other_profile/<profile_id>/', views.other_profile,name='other_profile'),
     path('activate/<uidb64>/<token>/',views.activate,name='activate'),
     path('test/', views.test,name='test'),
 ]

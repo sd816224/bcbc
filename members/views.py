@@ -24,7 +24,8 @@ def activateEmail(request,user,to_email):
     subject='Activate your user account'
     message=render_to_string('authentication/acc_active_email.html',{
         'user':user.email,
-        'domain':get_current_site(request).domain,
+        'domain':request.get_host(),
+        # 'domain':get_current_site(request).domain,
         'uid':urlsafe_base64_encode(force_bytes(user.pk)),
         'token':account_activation_token.make_token(user),
         'protocol':'https' if request.is_secure() else 'http'
@@ -131,13 +132,8 @@ def update_profile(request,profile_id):
 
 
 def test(request):
-    # Profiles=Profile.objects.all()
-    # return render(request,'authentication/test.html',{'Profiles':Profiles})
-    # help(User)
-    # if user.is_authenticated:
-    #     print('asaaa')
-    print(request.user.profile.pk)
-    return redirect('home')
+    print(get_current_site(request).domain)
+    return render(request,'authentication/acc_active_email.html')
 
 def register_login(request):
     if request.method=='POST':

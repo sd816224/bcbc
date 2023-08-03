@@ -7,6 +7,7 @@ from django.contrib import messages
 
 # Create your views here.
 def all_items(request):
+    print(request)
     all_items=Item.objects.all()
     # all_items=Item.objects.all().order_by('-datetime')
     return render(request,'shop/all_items.html',{'all_items':all_items})

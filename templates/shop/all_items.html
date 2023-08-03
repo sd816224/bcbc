@@ -9,8 +9,9 @@
 {% block content %}
     <br>
 {#<div><h1>all items page</h1></div>#}
-{##}
-{#    <a href="{% url 'add_item' %}"> add item</a>#}
+    {% if request.user.email == 'admin@admin.com' %}
+    <a href="{% url 'add_item' %}"> add item</a>
+    {% endif %}
 
 <section >
   <div class="text-center container py-5 ">

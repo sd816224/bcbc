@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'event',
     'members',
     'blog',
+    'shop',
     'ckeditor',
     'django.contrib.sites',  # make sure sites is included
     'allauth',

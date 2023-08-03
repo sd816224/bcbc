@@ -19,6 +19,12 @@ from django.utils.encoding import force_bytes,force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 # import allauth.account.views
+# def register_owner_notification():
+#     from_email = settings.EMAIL_HOST_USER
+#     subject='new user registration on BCBC'
+#     message='new user just registered'
+#     send_mail(subject=subject,message=message,from_email=from_email,recipient_list=['bcbc2015.lee@yahoo.com'])
+
 
 def activateEmail(request,user,to_email):
     subject='Activate your user account'
@@ -54,6 +60,7 @@ def activate(request,uidb64,token):
         messages.error(request,'activation link is invalid, please contact admin')
         return redirect('home')
 
+
 # Create your views here.
 @user_not_authenticated
 def user_register(request):
@@ -72,6 +79,7 @@ def user_register(request):
             # login(request,user)
             # messages.success(request,'register successful')
             # return redirect('update_profile',user.profile.id)
+            # register_owner_notification()
             return redirect('home')
     else:
         form=UserRegisterForm

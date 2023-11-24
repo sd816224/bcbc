@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import environ
-
+from dotenv import load_dotenv
+load_dotenv()
 
 #%%
 # from decouple import config
@@ -140,6 +141,30 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# if os.getenv('DS_DB_NAME'):
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': os.getenv('RDS_DB_NAME'),
+#             'USER': os.getenv('RDS_USERNAME'),
+#             'PASSWORD': os.getenv('RDS_PASSWORD'),
+#             'HOST': os.getenv('RDS_HOSTNAME'),
+#             'PORT': os.getenv('RDS_PORT'),
+#         }
+#     }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': 'django-images',
+#             'USER': 'django-images',
+#             'PASSWORD': 'complexpassword123',
+#             'HOST': 'localhost',
+#             'PORT': '5432',
+#         }
+#     }
+
 
 
 # Password validation

@@ -135,35 +135,24 @@ WSGI_APPLICATION = 'bcbc.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('RDS_DB_NAME'),
+        'USER': os.getenv('RDS_USERNAME'),
+        'PASSWORD': os.getenv('RDS_PASSWORD'),
+        'HOST': os.getenv('RDS_HOSTNAME'),
+        'PORT': os.getenv('RDS_PORT'),
     }
 }
-
-# if os.getenv('DS_DB_NAME'):
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': os.getenv('RDS_DB_NAME'),
-#             'USER': os.getenv('RDS_USERNAME'),
-#             'PASSWORD': os.getenv('RDS_PASSWORD'),
-#             'HOST': os.getenv('RDS_HOSTNAME'),
-#             'PORT': os.getenv('RDS_PORT'),
-#         }
-#     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': 'django-images',
-#             'USER': 'django-images',
-#             'PASSWORD': 'complexpassword123',
-#             'HOST': 'localhost',
-#             'PORT': '5432',
-#         }
-#     }
 
 
 

@@ -1,1 +1,0 @@
- echo "from members.models import User;from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin; User.objects.create_superuser('admin@admin.com', '123')" | source /var/app/venv/*/bin/activate && python3 manage.py shell

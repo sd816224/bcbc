@@ -6,29 +6,29 @@ step as follow:
 - eb init
 
 - as we use custom user admin,
-comment out admin.site.urls and django.contrib.admin. run the migrations to setup init db
+  comment out admin.site.urls and django.contrib.admin. run the migrations to setup init db
 
 - eb create
 - eb deploy
 - configure 14 env variables:
-AWS_ACCESS_KEY_ID
-AWS_S3_REGION_NAME
-AWS_SECRET_ACCESS_KEY
-AWS_STORAGE_BUCKET_NAME
-DS_DB_NAME
-RDS_USERNAME
-RDS_PASSWORD
-RDS_HOSTNAME
-RDS_PORT
-EMAIL_HOST
-EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD
-RECIPIENT_ADDRESS
-GIT_TOKEN
+  AWS_ACCESS_KEY_ID
+  AWS_S3_REGION_NAME
+  AWS_SECRET_ACCESS_KEY
+  AWS_STORAGE_BUCKET_NAME
+  DS_DB_NAME
+  RDS_USERNAME
+  RDS_PASSWORD
+  RDS_HOSTNAME
+  RDS_PORT
+  EMAIL_HOST
+  EMAIL_HOST_USER
+  EMAIL_HOST_PASSWORD
+  RECIPIENT_ADDRESS
+  GIT_TOKEN
 
 - uncomment and eb deploy
-
-
+  auto create superuser: ++admin@admin.com ++123
+  change the password in the eb url
 
 create aws route53: change godaddy nameservers to aws.  
 https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-beanstalk-environment.html#routing-to-beanstalk-environment-create-alias-procedure

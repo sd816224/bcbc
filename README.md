@@ -3,17 +3,14 @@ this repo is for deployments of aws elatstic beanstalk, independent RDS of postg
 
 step as follow:
 
-eb init
+- eb init
 
-as we use custom user admin,
+- as we use custom user admin,
 comment out admin.site.urls and django.contrib.admin. run the migrations to setup init db
 
-eb create
-eb deploy
-
-uncomment and eb deploy
-
-configure 9 env variables:
+- eb create
+- eb deploy
+- configure 14 env variables:
 AWS_ACCESS_KEY_ID
 AWS_S3_REGION_NAME
 AWS_SECRET_ACCESS_KEY
@@ -23,6 +20,15 @@ RDS_USERNAME
 RDS_PASSWORD
 RDS_HOSTNAME
 RDS_PORT
+EMAIL_HOST
+EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD
+RECIPIENT_ADDRESS
+GIT_TOKEN
+
+- uncomment and eb deploy
+
+
 
 create aws route53: change godaddy nameservers to aws.  
 https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-beanstalk-environment.html#routing-to-beanstalk-environment-create-alias-procedure

@@ -1,88 +1,38 @@
-### website function:
-    - display of club/team
-    - member management 
-    - event display and RSVP
-        -notification and reminder
+bcbc was deployed by aws EC2 previously
+this repo is for deployments of aws elatstic beanstalk, independent RDS of postgres database and s3 bucket storing static file.
 
+step as follow:
 
+eb init
 
-#### it has applications:
-    - event    
-    - members
-    - training management/ analysis/ feedback/
+as we use custom user admin,
+comment out admin.site.urls and django.contrib.admin. run the migrations to setup init db
 
+eb create
+eb deploy
 
-#### navbar:
-    -info
-    -blog/news
-    -venue map
-    -events
-        -add/update/RSVP event(member only)
-    -contact
-    -join us
-    -signin signout register
-        -event
-        -suggestion/feedback
-        -training task and communication area
+uncomment and eb deploy
 
-#### need improvement:
-    - email activate the user registeration
-    - set image size
-    - member valid period
-    - differnt member group and previlage
-    - got to learn the fking time entry
+configure 9 env variables:
+AWS_ACCESS_KEY_ID
+AWS_S3_REGION_NAME
+AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME
+DS_DB_NAME
+RDS_USERNAME
+RDS_PASSWORD
+RDS_HOSTNAME
+RDS_PORT
 
+create aws route53: change godaddy nameservers to aws.  
+https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-beanstalk-environment.html#routing-to-beanstalk-environment-create-alias-procedure
 
-## 260623
-issue
-- [x] update event -> jump to event detail
--  event detail. venue anker to venue page
-- [x] only orgnizer can edit the event detail
-- [x] hide the orgnizer of eventform
-- email the rsvp members if detail updated
-- [x] event model need add limit player 
-- [x] profile edit form upgrade
-- [x] profile events attended and going to attend feature
-- add active class for navbar when click
-- [x] register page add: 'Do you give the club consent to use photos/videos on our social media channels'
-- ~~sadd footer: contact.~~
-- [x] event detail has no time
+create license aws ACM: create records in route 53
 
-## 280623
-- learn decouple
-- give event edit button for admin
-- duplicate event 
+set load balancer in eb console for 443 port https attached with license
 
-## 290623
-- user aothentication
-
-## 030723
-- [x] add social auth
-
-## 130723
-- custom registration form. and email authentication
-  - email
-  - password
-  - name
-  
-## 140723
-- learn 'class based view'
-  
-## 180723
-- languages switch
-- upgrade warning message box and message level
-- old members proto
-
-## 210723
-- blog/news create function
-- integrate google map . to replace the venue model
-- training interact section
-- view orgnier/others profile 
-
-## 250723
-- add blog.
-- add form and edit page.
-
-## 300723
-- add datetimepicker
-- 
+config listener.
+https://testdriven.io/blog/django-elastic-beanstalk/#modify-the-load-balancer-to-serve-https
+1: change ALLOWED_HOSTS (add webwites also managed ec2 ip)
+2: config apache in aws config
+3: config apache ssl_rewrite.conf

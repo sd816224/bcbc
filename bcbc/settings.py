@@ -12,9 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import environ
-
-
+from dotenv import load_dotenv
+load_dotenv()
 #%%
 # from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,7 +37,7 @@ ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1','bcbasketball.co.uk']
 
 INSTALLED_APPS = [
     # "whitenoise.runserver_nostatic",
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -57,6 +56,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.twitter',
     'allauth.socialaccount.providers.weixin',
+    'django_tables2',
+    'crispy_forms',
+    'storages',
 ]
 SOCIALACCOUNT_PROVIDERS = {
     'weixin': {
@@ -130,16 +132,40 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bcbc.wsgi.application'
 
+if os.getenv('AWS_STORAGE_BUCKET_NAME'):
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
+
+    AWS_S3_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_S3_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY') 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.getenv('DS_DB_NAME'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.getenv('RDS_DB_NAME'),
+            'USER': os.getenv('RDS_USERNAME'),
+            'PASSWORD': os.getenv('RDS_PASSWORD'),
+            'HOST': os.getenv('RDS_HOSTNAME'),
+            'PORT': os.getenv('RDS_PORT'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'django-images',
+            'USER': 'django-images',
+            'PASSWORD': 'complexpassword123',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 
 # Password validation
@@ -192,15 +218,13 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-env=environ.Env()
-environ.Env.read_env()
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST=env('EMAIL_HOST')
+EMAIL_HOST=os.getenv('EMAIL_HOST')
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
-EMAIL_HOST_USER=env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD=env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
+RECIPIENT_ADDRESS=os.getenv('RECIPIENT_ADDRESS')
 
-RECIPIENT_ADDRESS=env('RECIPIENT_ADDRESS')
-
+DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap4.html'

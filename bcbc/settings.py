@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-50k1-txn%g0=i#7ez+@mgt$36)1p-rprce_vem#q9b4#1-llg$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+USE_S3=False
+USE_RDS=False
 # ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1','bcbasketball.co.uk']
 ALLOWED_HOSTS = ['*']
 
@@ -132,19 +133,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bcbc.wsgi.application'
 
-if os.getenv('AWS_STORAGE_BUCKET_NAME'):
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
-
-    AWS_S3_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-    AWS_S3_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY') 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-if os.getenv('DS_DB_NAME'):
+if USE_RDS:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -198,26 +191,45 @@ USE_I18N = True
 
 USE_TZ = True
 
+if os.getenv('AWS_STORAGE_BUCKET_NAME'):
+    
+
+    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+    
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+# USE_S3 = os.getenv('USE_S3') 
 
-STATIC_URL = '/static/'
-# STATICFILES_DIRS=(
-#     os.path.join(BASE_DIR,'static'),
-# )
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+if USE_S3:
+    #aws setting
+    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_DEFAULT_ACL = None
+    #s3 static setting
+    STATIC_LOCATION='static'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    STATICFILES_STORAGE = 'blog.storage_backends.StaticStorage'
+    #s3 public media setting
+    PUBLIC_MEDIA_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'blog.storage_backends.PublicMediaStorage'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+    MEDIA_URL='/media/'
+    MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
-MEDIA_URL='media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST=os.getenv('EMAIL_HOST')

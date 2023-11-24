@@ -5,3 +5,7 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 venv/
+staticfiles/
+static/
+whole.json
+media/

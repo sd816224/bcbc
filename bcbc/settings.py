@@ -53,20 +53,21 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.weixin',
+    # 'allauth.socialaccount.providers.weixin',
     'django_tables2',
     'crispy_forms',
     'storages',
 ]
-SOCIALACCOUNT_PROVIDERS = {
-    'weixin': {
-        # 'AUTHORIZE_URL': 'https://open.weixin.qq.com/connect/oauth2/authorize',  # for media platform
-        'SCOPE': ['snsapi_base'],
-    }
-}
+
+# SOCIALACCOUNT_PROVIDERS = {
+#     'weixin': {
+#         # 'AUTHORIZE_URL': 'https://open.weixin.qq.com/connect/oauth2/authorize',  # for media platform
+#         'SCOPE': ['snsapi_base'],
+#     }
+# }
 
 AUTH_USER_MODEL='members.User'
 
@@ -92,7 +93,10 @@ SOCIALACCOUNT_PROVIDERS = {
 LOGIN_REDIRECT_URL='user_profile'
 SOCIALACCOUNT_LOGIN_ON_GET=True # skip the loginvia page
 
-SITE_ID = 1
+SITE_ID = 2
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False

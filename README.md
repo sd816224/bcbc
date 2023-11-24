@@ -69,13 +69,12 @@ but need to remember to migrate before moving.
 
 reset the db: manage.py dbshell> DROP SCHEMA public CASCADE;CREATE SCHEMA public;
 
-
 dev: always work with use_s3 off. rds off.
 
-before deploy: dump db backup 
-deploy: 
-  check 
-  1 all working detele no use static 
-  2 freeze 
-  3 use_s3 on. rds on
-  
+before deploy: dump db backup
+deploy:
+check
+1 all working detele no use static
+2 freeze
+3 use_s3 on. rds on 4. change over 2 social application sites.??????
+

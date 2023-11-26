@@ -153,6 +153,13 @@ if USE_RDS=='True':
         }
     }
 else:
+    # DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -194,12 +201,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
-if os.getenv('AWS_STORAGE_BUCKET_NAME'):
-    
-
-    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-    
 
 
 # Static files (CSS, JavaScript, Images)

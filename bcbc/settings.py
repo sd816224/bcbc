@@ -28,8 +28,8 @@ SECRET_KEY = 'django-insecure-50k1-txn%g0=i#7ez+@mgt$36)1p-rprce_vem#q9b4#1-llg$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-USE_S3=False
-USE_RDS=False
+USE_S3=os.getenv('USE_S3')
+USE_RDS=os.getenv('USE_RDS')
 # ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1','bcbasketball.co.uk']
 ALLOWED_HOSTS = ['*']
 
@@ -93,7 +93,7 @@ SOCIALACCOUNT_PROVIDERS = {
 LOGIN_REDIRECT_URL='user_profile'
 SOCIALACCOUNT_LOGIN_ON_GET=True # skip the loginvia page
 
-SITE_ID = 2
+SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -141,7 +141,7 @@ WSGI_APPLICATION = 'bcbc.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-if USE_RDS:
+if USE_RDS=='True':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -206,7 +206,7 @@ if os.getenv('AWS_STORAGE_BUCKET_NAME'):
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 # USE_S3 = os.getenv('USE_S3') 
 
-if USE_S3:
+if USE_S3=='True':
     #aws setting
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')

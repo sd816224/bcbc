@@ -11,3 +11,4 @@ whole.json
 media/
 pyenv
 DB_jsons/
+db.sqlite3

@@ -11,13 +11,18 @@
 - users can RSVP/cancel the attending to the event
 
 ## further dev:
+
 - [ ] build CICD pipeline for ease of future development
   - find a better way to pass env variables rather than manually
+  - write test for all units.
 - [ ] taking paymeng function for shop
 - [ ] upgrade css/looking
 - [ ] let user to comment below the blog
 - [ ] periodiclly auto backup database.
 
+## answers need to find:
+- switch DEBUG to false 
+- best practise to load staitc/media file form s3 bucket
 
 
 ---
@@ -83,7 +88,7 @@ divide static/media/DB
 - STATIC_ROOT/MEDIA_ROOT: destination path where to put the collections for serving the web.
 
 - to backup the database: 
-```python manage.py dumpdata> > backup.json```
+```python manage.py dumpdata > backup.json```
 - to load the data:
 ```python manage.py loaddata backup.json```
 - even for a empty db without superuser. it can all be moved to.but need to remember to migrate before moving.

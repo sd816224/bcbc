@@ -78,3 +78,12 @@ check
 2 freeze
 3 use_s3 on. rds on 4. change over 2 social application sites.??????
 
+django_site table: site_id is created whenever creating a new site
+socialaccount_socialapp_sites is the cross table connect the django_site. site_id to the social_site_id
+
+for init db without any data input. table would not created for the render. 
+so we need to run migrate --run-syncdb after the init migrate. to avoid the render bug 
+
+
+we can loaddata from local database
+but they should not share the same social application account as the responsing url are different.

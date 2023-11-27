@@ -49,7 +49,9 @@ config listener in code
   - add listner: 443 port. https attached with license
 3: config apache ssl_rewrite.conf
 
+after deploy: may need to add ALLOED_HOST for the eb-EC2 IP 
 
+depoly again
 
 #################
 divide static/media/DB

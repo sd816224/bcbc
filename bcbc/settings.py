@@ -30,8 +30,8 @@ SECRET_KEY = 'django-insecure-50k1-txn%g0=i#7ez+@mgt$36)1p-rprce_vem#q9b4#1-llg$
 DEBUG = True
 USE_S3=os.getenv('USE_S3')
 USE_RDS=os.getenv('USE_RDS')
-# ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1','bcbasketball.co.uk']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1','bcbasketball.co.uk']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition

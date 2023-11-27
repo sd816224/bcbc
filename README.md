@@ -41,13 +41,15 @@ https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-beanstalk-e
 
 create license aws ACM: create records in route 53
 
-set load balancer in eb console for 443 port https attached with license
-
-config listener.
 https://testdriven.io/blog/django-elastic-beanstalk/#modify-the-load-balancer-to-serve-https
+
+config listener in code 
 1: change ALLOWED_HOSTS (add webwites also managed ec2 ip)
 2: config apache in aws config
+  - add listner: 443 port. https attached with license
 3: config apache ssl_rewrite.conf
+
+
 
 #################
 divide static/media/DB

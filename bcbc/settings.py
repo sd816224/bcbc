@@ -12,10 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import environ
 from dotenv import load_dotenv
 load_dotenv()
-
 #%%
 # from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,9 +28,10 @@ SECRET_KEY = 'django-insecure-50k1-txn%g0=i#7ez+@mgt$36)1p-rprce_vem#q9b4#1-llg$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['www.bcbasketball.co.uk','127.0.0.1','bcbasketball.co.uk']
-# ALLOWED_HOSTS = []
+USE_S3=os.getenv('USE_S3')
+USE_RDS=os.getenv('USE_RDS')
+ALLOWED_HOSTS = ['www.bcbasketball.co.uk','172.31.47.199','bcbasketball.co.uk']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,17 +53,21 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.weixin',
+    # 'allauth.socialaccount.providers.weixin',
+    'django_tables2',
+    'crispy_forms',
+    'storages',
 ]
-SOCIALACCOUNT_PROVIDERS = {
-    'weixin': {
-        # 'AUTHORIZE_URL': 'https://open.weixin.qq.com/connect/oauth2/authorize',  # for media platform
-        'SCOPE': ['snsapi_base'],
-    }
-}
+
+# SOCIALACCOUNT_PROVIDERS = {
+#     'weixin': {
+#         # 'AUTHORIZE_URL': 'https://open.weixin.qq.com/connect/oauth2/authorize',  # for media platform
+#         'SCOPE': ['snsapi_base'],
+#     }
+# }
 
 AUTH_USER_MODEL='members.User'
 
@@ -91,6 +94,9 @@ LOGIN_REDIRECT_URL='user_profile'
 SOCIALACCOUNT_LOGIN_ON_GET=True # skip the loginvia page
 
 SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
@@ -132,28 +138,38 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bcbc.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-# DATABASES = {
+if USE_RDS=='True':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.getenv('RDS_DB_NAME'),
+            'USER': os.getenv('RDS_USERNAME'),
+            'PASSWORD': os.getenv('RDS_PASSWORD'),
+            'HOST': os.getenv('RDS_HOSTNAME'),
+            'PORT': os.getenv('RDS_PORT'),
+        }
+    }
+else:
+    # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('RDS_DB_NAME'),
-        'USER': os.getenv('RDS_USERNAME'),
-        'PASSWORD': os.getenv('RDS_PASSWORD'),
-        'HOST': os.getenv('RDS_HOSTNAME'),
-        'PORT': os.getenv('RDS_PORT'),
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'django-images',
+            'USER': 'django-images',
+            'PASSWORD': 'complexpassword123',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
     }
-}
-
 
 
 # Password validation
@@ -189,32 +205,43 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+# USE_S3 = os.getenv('USE_S3') 
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS=(
-    os.path.join(BASE_DIR,'static'),
-)
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+if USE_S3=='True':
+    #aws setting
+    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_DEFAULT_ACL = None
+    #s3 static setting
+    STATIC_LOCATION='static'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    STATICFILES_STORAGE = 'blog.storage_backends.StaticStorage'
+    #s3 public media setting
+    PUBLIC_MEDIA_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'blog.storage_backends.PublicMediaStorage'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+    MEDIA_URL='/media/'
+    MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
-MEDIA_URL='media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-env=environ.Env()
-environ.Env.read_env()
-
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST=env('EMAIL_HOST')
+EMAIL_HOST=os.getenv('EMAIL_HOST')
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
-EMAIL_HOST_USER=env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD=env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
+RECIPIENT_ADDRESS=os.getenv('RECIPIENT_ADDRESS')
 
-RECIPIENT_ADDRESS=env('RECIPIENT_ADDRESS')
-
+DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap4.html'
